@@ -1,15 +1,14 @@
 <template>
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <div>asdf</div>
+  <MainPage />
 </template>
 
 <script>
-// import HelloWorld from './components/helloWorld'
+import MainPage from "./components/page/mainPage";
 
 export default {
   name: "App",
   components: {
-    // HelloWorld
+    MainPage,
   },
 };
 </script>
