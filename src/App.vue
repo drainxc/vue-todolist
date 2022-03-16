@@ -6,6 +6,7 @@
       <input
         type="text"
         v-model="userInput"
+        @keyup.enter="setTodoList"
       />
     </div>
   </div>
@@ -20,6 +21,11 @@ export default {
       userInput: "",
       todoList: [],
     };
+  },
+  methods: {
+    setTodoList() {
+      this.todoList.push(this.userInput);
+    },
   },
 };
 </script>
