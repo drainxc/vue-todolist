@@ -1,14 +1,25 @@
 <template>
-  <MainPage />
+  <div id="app">
+    <div class="container">
+      <div></div>
+      <h1>TodoList</h1>
+      <input
+        type="text"
+        v-model="userInput"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
-import MainPage from "./components/page/mainPage";
-
 export default {
   name: "App",
-  components: {
-    MainPage,
+  components: {},
+  data() {
+    return {
+      userInput: "",
+      todoList: [],
+    };
   },
 };
 </script>
