@@ -14,10 +14,11 @@
   </div>
 </template>
 
-<script>
-import { data } from "@/lib/export/data";
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+import { data } from "./lib/export/data";
 
-export default {
+@Options({
   name: "App",
   components: {},
   data() {
@@ -35,11 +36,8 @@ export default {
       this.userInput = "";
     },
   },
-};
+})
+export default class App extends Vue {}
 </script>
 
-<style scoped>
-#app {
-  padding-left: 20px;
-}
-</style>
+<style></style>
