@@ -4,9 +4,9 @@
       <div>
         <h1>TodoList</h1>
         <input type="text" v-model="userInput" @keyup.enter="setTodoList" />
-        <div>
+        <div class="contents">
           <li v-for="todo in todoList" v-bind:key="todo">
-            {{todo}}
+            {{ todo.label }}
           </li>
         </div>
       </div>
@@ -15,18 +15,23 @@
 </template>
 
 <script>
+import { data } from "@/lib/export/data";
+
 export default {
   name: "App",
   components: {},
   data() {
     return {
       userInput: "",
-      todoList: [],
+      todoList: data,
     };
   },
   methods: {
     setTodoList() {
-      this.todoList.push(this.userInput);
+      this.todoList.push({
+        label: this.userInput,
+        state: "active",
+      });
       this.userInput = "";
     },
   },
@@ -35,6 +40,6 @@ export default {
 
 <style scoped>
 #app {
-  text-align: center;
+  padding-left: 20px;
 }
 </style>
