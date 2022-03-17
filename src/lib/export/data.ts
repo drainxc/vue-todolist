@@ -1,4 +1,9 @@
-export const data = [
+type dataType = {
+  label: String;
+  state: String;
+};
+
+export const data: Array<dataType> = [
   {
     label: "밥 먹기",
     state: "",
