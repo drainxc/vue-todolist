@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <div class="container">
-      <div></div>
-      <h1>TodoList</h1>
-      <input
-        type="text"
-        v-model="userInput"
-        @keyup.enter="setTodoList"
-      />
+      <div>
+        <h1>TodoList</h1>
+        <input type="text" v-model="userInput" @keyup.enter="setTodoList" />
+        <div>
+          <li v-for="todo in todoList" v-bind:key="todo">
+            {{todo}}
+          </li>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,16 +27,14 @@ export default {
   methods: {
     setTodoList() {
       this.todoList.push(this.userInput);
+      this.userInput = "";
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
