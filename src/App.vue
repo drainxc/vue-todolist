@@ -25,14 +25,17 @@ import { data } from "./lib/export/data";
     return {
       userInput: "",
       todoList: data,
+      nextID: 3,
     };
   },
   methods: {
-    setTodoList() {
+    setTodoList: function (): void {
       this.todoList.push({
         label: this.userInput,
         state: "active",
+        key: this.nextID,
       });
+      this.nextID += 1;
       this.userInput = "";
     },
   },
@@ -40,4 +43,8 @@ import { data } from "./lib/export/data";
 export default class App extends Vue {}
 </script>
 
-<style></style>
+<style scoped>
+.contents {
+  display: flex;
+}
+</style>
