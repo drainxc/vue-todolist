@@ -43,7 +43,9 @@ import { data } from "./lib/export/data";
     },
 
     toggleTodoState: function (todo: any): void {
-      console.log(todo.key);
+      this.todoList = this.todoList.filter(
+        (item: any) => item.key !== todo.key
+      );
     },
   },
 })
