@@ -12,31 +12,31 @@ import { data } from "../../../lib/export/data";
 
 @Options({
   name: "Contents",
-  components: {},
   data() {
     return {
       userInput: "",
       todoList: data,
-      nextID: 3,
+      nextID: 3, // 초기 데이터
     };
   },
   methods: {
     setTodoList: function (): void {
-      if (this.userInput !== "") {
+      if (this.userInput !== "") { // input 값이 들어있다면
         this.todoList.push({
           label: this.userInput,
           state: "active",
           key: this.nextID,
-        });
-        this.nextID += 1;
-        this.userInput = "";
+        }); // data 추가
+        this.nextID += 1; // key
+        this.userInput = ""; // input 값 비우기
       }
     },
+
     deleteBtn: function (todo: any): void {
       this.todoList = this.todoList.filter(
         (item: any) => item.key !== todo.key
-      );
-    },
+      ); // 지울 데이터가 key값과 같다면 제외
+    }, // 삭제 기능
   },
 })
 export default class Contents extends Vue {}
