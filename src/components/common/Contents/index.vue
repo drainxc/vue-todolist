@@ -2,7 +2,11 @@
   <input type="text" v-model="userInput" @keyup.enter="setTodoList" />
   <div class="contents" v-for="todo in todoList" v-bind:key="todo">
     <div>
-      <input v-if="todo.fix" v-model="fixInput" />
+      <input
+        v-if="todo.fix"
+        v-model="fixInput"
+        @keyup.enter="setFixTodo(todo)"
+      />
       <li v-else>{{ todo.label }}</li>
     </div>
     <input type="checkbox" v-model="todo.check" />
@@ -48,6 +52,11 @@ import { data } from "../../../lib/export/data";
 
     updateBtn: function (todo: any): void {
       todo.fix = !todo.fix;
+    },
+
+    setFixTodo: function (todo: any): void {
+      todo.label = this.fixInput;
+      todo.fix = false;
     },
   },
 })
