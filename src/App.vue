@@ -10,9 +10,7 @@ import MainPage from "./components/page/mainPage/index.vue";
   name: "App",
   components: { MainPage },
 })
-export default class App extends Vue {
-  
-}
+export default class App extends Vue {}
 </script>
 
 <style scoped>
