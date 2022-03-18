@@ -57,6 +57,7 @@ import { data } from "../../../lib/export/data";
     setFixTodo: function (todo: any): void {
       todo.label = this.fixInput;
       todo.fix = false;
+      this.fixInput = "";
     }, // todo의 label을 fixInput 값으로 바꾸기
   },
 })
