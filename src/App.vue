@@ -31,13 +31,15 @@ import { data } from "./lib/export/data";
   },
   methods: {
     setTodoList: function (): void {
-      this.todoList.push({
-        label: this.userInput,
-        state: "active",
-        key: this.nextID,
-      });
-      this.nextID += 1;
-      this.userInput = "";
+      if (this.userInput !== "") {
+        this.todoList.push({
+          label: this.userInput,
+          state: "active",
+          key: this.nextID,
+        });
+        this.nextID += 1;
+        this.userInput = "";
+      }
     },
 
     toggleTodoState: function (todo: any): void {
