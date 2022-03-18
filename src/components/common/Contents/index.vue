@@ -52,12 +52,12 @@ import { data } from "../../../lib/export/data";
 
     updateBtn: function (todo: any): void {
       todo.fix = !todo.fix;
-    },
+    }, // 조건문으로 li를 input으로 바꾸기
 
     setFixTodo: function (todo: any): void {
       todo.label = this.fixInput;
       todo.fix = false;
-    },
+    }, // todo의 label을 fixInput 값으로 바꾸기
   },
 })
 export default class Contents extends Vue {}
