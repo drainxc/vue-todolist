@@ -8,7 +8,7 @@
           <li>
             {{ todo.label }}
           </li>
-          <button v-on:click="toggleTodoState(todo)">delete</button>
+          <button v-on:click="deleteBtn(todo)">delete</button>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@ import { data } from "./lib/export/data";
       }
     },
 
-    toggleTodoState: function (todo: any): void {
+    deleteBtn: function (todo: any): void {
       this.todoList = this.todoList.filter(
         (item: any) => item.key !== todo.key
       );
