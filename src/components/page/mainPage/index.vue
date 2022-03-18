@@ -41,7 +41,6 @@ import { data } from "../../../lib/export/data";
         this.userInput = "";
       }
     },
-
     deleteBtn: function (todo: any): void {
       this.todoList = this.todoList.filter(
         (item: any) => item.key !== todo.key
