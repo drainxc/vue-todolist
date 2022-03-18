@@ -13,8 +13,4 @@ import MainPage from "./components/page/mainPage/index.vue";
 export default class App extends Vue {}
 </script>
 
-<style scoped>
-.contents {
-  display: flex;
-}
-</style>
+<style scoped></style>

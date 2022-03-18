@@ -1,12 +1,6 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <div>
-        <h1>TodoList</h1>
-        <Contents />
-      </div>
-    </div>
-  </div>
+  <h1>TodoList</h1>
+  <Contents />
 </template>
 
 <script lang="ts">

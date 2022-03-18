@@ -1,9 +1,7 @@
 <template>
   <input type="text" v-model="userInput" @keyup.enter="setTodoList" />
   <div class="contents" v-for="todo in todoList" v-bind:key="todo">
-    <li>
-      {{ todo.label }}
-    </li>
+    <li>{{ todo.label }}</li>
     <button v-on:click="deleteBtn(todo)">delete</button>
   </div>
 </template>
