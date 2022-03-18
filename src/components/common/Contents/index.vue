@@ -9,7 +9,7 @@
       />
       <li v-else>{{ todo.label }}</li>
     </div>
-    <input type="checkbox" v-model="todo.check" />
+    <input type="checkbox" v-model="todo.check" @click="checkBox" />
     <button v-on:click="updateBtn(todo)">수정</button>
     <button v-on:click="deleteBtn(todo)">삭제</button>
   </div>
@@ -19,13 +19,16 @@
 import { Options, Vue } from "vue-class-component";
 import { data } from "../../../lib/export/data";
 
+const todoData = localStorage.getItem("todoList");
+const nowID = localStorage.getItem("todoList");
+
 @Options({
   name: "Contents",
   data() {
     return {
       userInput: "",
-      todoList: data,
-      nextID: 3, // 초기 데이터
+      todoList: todoData !== null ? JSON.parse(todoData) : data, // 초기 데이터,
+      nextID: nowID !== null ? JSON.parse(nowID) : 3, // 초기 데이터
       fixInput: "",
     };
   },
@@ -41,13 +44,20 @@ import { data } from "../../../lib/export/data";
         }); // data 추가
         this.nextID += 1; // key
         this.userInput = ""; // input 값 비우기
+        localStorage.setItem("todoList", JSON.stringify(this.todoList));
+        localStorage.setItem("nextID", JSON.stringify(this.nextID));
       }
+    },
+
+    checkBox: function (): void {
+      localStorage.setItem("todoList", JSON.stringify(this.todoList));
     },
 
     deleteBtn: function (todo: any): void {
       this.todoList = this.todoList.filter(
         (item: any) => item.key !== todo.key
       ); // 지울 데이터가 key값과 같다면 제외
+      localStorage.setItem("todoList", JSON.stringify(this.todoList));
     }, // 삭제 기능
 
     updateBtn: function (todo: any): void {
@@ -58,6 +68,7 @@ import { data } from "../../../lib/export/data";
       todo.label = this.fixInput;
       todo.fix = false;
       this.fixInput = "";
+      localStorage.setItem("todoList", JSON.stringify(this.todoList));
     }, // todo의 label을 fixInput 값으로 바꾸기
   },
 })
