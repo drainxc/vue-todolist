@@ -9,7 +9,7 @@
       />
       <li v-else>{{ todo.label }}</li>
     </div>
-    <input type="checkbox" v-model="todo.check" @click="checkBox" />
+    <input type="checkbox" v-model="todo.check" @change="checkBox" />
     <button v-on:click="updateBtn(todo)">수정</button>
     <button v-on:click="deleteBtn(todo)">삭제</button>
   </div>
@@ -20,7 +20,7 @@ import { Options, Vue } from "vue-class-component";
 import { data } from "../../../lib/export/data";
 
 const todoData = localStorage.getItem("todoList");
-const nowID = localStorage.getItem("todoList");
+const nowID = localStorage.getItem("nowID");
 
 @Options({
   name: "Contents",
